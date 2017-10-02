@@ -9,13 +9,9 @@ describe OysterCard do
 
   describe '#top_up' do
     it 'tops up balance' do
-      expect(subject).to respond_to(:top_up).with(1).argument 
+      previous_balance = subject.balance
+      expect(subject.top_up(10)).to eq previous_balance + 10 
     end
-
-
-
   end
-
-
 
 end
