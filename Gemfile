@@ -2,10 +2,6 @@ source 'https://rubygems.org'
 
 ruby '2.4.2'
 
-group :development do
+group :development, :test do
   gem 'rspec'
-end
-
-group :test do
-  gem 'test'
 end
