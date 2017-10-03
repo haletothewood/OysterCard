@@ -40,10 +40,14 @@ describe OysterCard do
       oyster.touch_in
       expect(oyster).to be_in_journey
     end
+    it 'returns an error when the card balance is less than 1' do
+      expect{ oyster.touch_in }.to raise_error "minimum balance of £#{OysterCard::MINIMUM_BALANCE} required to touch in"
+    end
   end
 
   describe '#touch_out' do
     it 'deactivates the in journey status' do
+      oyster.top_up(OysterCard::MAX_BALANCE)
       oyster.touch_in
       oyster.touch_out
       expect(oyster).to_not be_in_journey
