@@ -3,6 +3,8 @@ require 'oystercard'
 describe OysterCard do
 
   subject(:oyster) { described_class.new }
+  let(:max_balance) { OysterCard::MAX_BALANCE }
+  let(:min_balance) { OysterCard::MINIMUM_BALANCE }
 
   describe '#initialize' do
     it 'creates a balance of zero' do
@@ -16,15 +18,8 @@ describe OysterCard do
       expect { oyster.top_up(1) }.to change { oyster.balance }.by 1
     end
     it 'wont add more than the max balance' do
-      oyster.top_up(OysterCard::MAX_BALANCE)
-      expect { oyster.top_up(1) }.to raise_error "Sorry, can't add more than £#{OysterCard::MAX_BALANCE}!"
-    end
-  end
-
-  describe '#deduct' do
-    it 'deducts a specified amount from the balance' do
-      oyster.top_up(20)
-      expect { oyster.deduct(5) }.to change { oyster.balance }.by -5
+      oyster.top_up(max_balance)
+      expect { oyster.top_up(1) }.to raise_error "Sorry, can't add more than £#{max_balance}!"
     end
   end
 
@@ -36,21 +31,26 @@ describe OysterCard do
 
   describe '#touch_in' do
     it 'activates the in journey status' do
-      oyster.top_up(OysterCard::MAX_BALANCE)
+      oyster.top_up(max_balance)
       oyster.touch_in
       expect(oyster).to be_in_journey
     end
-    it 'returns an error when the card balance is less than 1' do
-      expect{ oyster.touch_in }.to raise_error "minimum balance of £#{OysterCard::MINIMUM_BALANCE} required to touch in"
+    it 'will not let you touch in when insufficient funds' do
+      expect{ oyster.touch_in }.to raise_error "minimum balance of £#{min_balance} required to touch in"
     end
   end
 
   describe '#touch_out' do
-    it 'deactivates the in journey status' do
-      oyster.top_up(OysterCard::MAX_BALANCE)
+    before(:each) do
+      oyster.top_up(max_balance)
       oyster.touch_in
+    end
+    it 'deactivates the in journey status' do
       oyster.touch_out
       expect(oyster).to_not be_in_journey
+    end
+    it 'charges the minimum fare for the journey' do
+      expect { oyster.touch_out }.to change { oyster.balance }.by(-min_balance)
     end
   end
 

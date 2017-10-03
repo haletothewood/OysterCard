@@ -9,12 +9,8 @@ class OysterCard
   end
 
   def top_up(amount)
-    fail "Sorry, can't add more than £#{MAX_BALANCE}!" if @balance + amount > MAX_BALANCE
+    fail "Sorry, can't add more than £#{MAX_BALANCE}!" if balance + amount > MAX_BALANCE
     @balance += amount
-  end
-  
-  def deduct(amount)
-    @balance -= amount
   end
 
   def touch_in
@@ -23,11 +19,18 @@ class OysterCard
   end
 
   def touch_out
+    deduct(MINIMUM_BALANCE)
     @active = false
   end
 
   def in_journey?
     @active
+  end
+
+  private
+
+  def deduct(amount)
+    @balance -= amount
   end
 
 end
