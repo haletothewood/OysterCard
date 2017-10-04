@@ -1,5 +1,4 @@
 class OysterCard
-
   attr_reader :balance, :journey_history
   attr_accessor :entry_station
 
@@ -13,7 +12,7 @@ class OysterCard
   end
 
   def top_up(amount)
-    fail "Sorry, can't add more than £#{MAX_BALANCE}!" if balance + amount > MAX_BALANCE
+    raise "Sorry, can't add more than £#{MAX_BALANCE}!" if balance + amount > MAX_BALANCE
     @balance += amount
   end
 
@@ -29,7 +28,7 @@ class OysterCard
   end
 
   def in_journey?
-    !!entry_station
+    entry_station
   end
 
   private
@@ -37,5 +36,4 @@ class OysterCard
   def deduct(amount)
     @balance -= amount
   end
-
 end

@@ -1,7 +1,6 @@
 require 'oystercard'
 
 describe OysterCard do
-
   subject(:oyster) { described_class.new }
   let(:max_balance) { OysterCard::MAX_BALANCE }
   let(:min_balance) { OysterCard::MINIMUM_BALANCE }
@@ -19,7 +18,6 @@ describe OysterCard do
 
   describe '#top_up' do
     it 'tops up a specified amount to the balance' do
-      previous_balance = oyster.balance
       expect { oyster.top_up(1) }.to change { oyster.balance }.by 1
     end
     it 'wont add more than the max balance' do
@@ -29,7 +27,7 @@ describe OysterCard do
   end
 
   describe '#in_journey' do
-    it "reports on the journey status of the card" do
+    it 'reports on the journey status of the card' do
       expect(oyster).to_not be_in_journey
     end
   end
@@ -41,7 +39,7 @@ describe OysterCard do
       expect(oyster).to be_in_journey
     end
     it 'will not let you touch in when insufficient funds' do
-      expect{ oyster.touch_in(entry_station) }.to raise_error "minimum balance of £#{min_balance} required to touch in"
+      expect { oyster.touch_in(entry_station) }.to raise_error "minimum balance of £#{min_balance} required to touch in"
     end
     it 'remembers the entry station' do
       oyster.top_up(max_balance)
@@ -67,12 +65,11 @@ describe OysterCard do
       expect(oyster.entry_station).to eq nil
     end
 
-    let(:journey){ { entry_station: entry_station, exit_station: exit_station } }
+    let(:journey) { { entry_station: entry_station, exit_station: exit_station } }
 
     it 'saves the journey history' do
       oyster.touch_out(exit_station)
       expect(oyster.journey_history).to include journey
     end
   end
-
 end
