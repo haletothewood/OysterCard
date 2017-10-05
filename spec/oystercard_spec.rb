@@ -26,12 +26,6 @@ describe OysterCard do
     end
   end
 
-  describe '#in_journey' do
-    it 'reports on the journey status of the card' do
-      expect(oyster).to_not be_in_journey
-    end
-  end
-
   describe '#touch_in' do
     it 'adds a journey to the current_journey instance variable' do
       oyster.top_up(max_balance)

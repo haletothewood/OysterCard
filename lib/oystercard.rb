@@ -21,10 +21,10 @@ class OysterCard
     raise "minimum balance of £#{MINIMUM_BALANCE} required to touch in" unless @balance >= MINIMUM_BALANCE
     if @current_journey
       deduct @current_journey.fare
+      @journey_history << @current_journey
     end
-    journey = Journey.new
-    journey.start station
-    @current_journey = journey
+    @current_journey = Journey.new
+    @current_journey.start station
   end
 
   def touch_out(station)
@@ -35,10 +35,6 @@ class OysterCard
     deduct @current_journey.fare
     @journey_history << @current_journey
     @current_journey = nil
-  end
-
-  def in_journey?
-    entry_station
   end
 
   private
