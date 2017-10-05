@@ -3,7 +3,7 @@ require 'journey'
 describe Journey do
   let(:entry_station) { double (:station) }
   let(:exit_station) { double (:station) }
-  let(:journey) { Journey.new }
+  let(:journey) { Journey.new(entry_station: false, exit_station: false) }
 
   context 'after touch in' do
     before(:each) { journey.start(entry_station) }
