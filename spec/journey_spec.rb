@@ -24,18 +24,18 @@ describe Journey do
     it 'returns the minimum fare' do
       journey.start(entry_station)
       journey.finish(exit_station)
-      expect(journey.fare).to eq 1
+      expect(journey.fare).to eq Journey::MINIMUM_FARE
     end
   end
 
   context 'after an incomplete journey' do
     it 'returns a penalty fare if fail to touch out' do
       journey.start(entry_station)
-      expect(journey.fare).to eq 6
+      expect(journey.fare).to eq Journey::PENALTY_FARE
     end
     it 'returns a penalty fare if fail to touch in' do
       journey.finish(exit_station)
-      expect(journey.fare).to eq 6
+      expect(journey.fare).to eq Journey::PENALTY_FARE
     end
   end
 

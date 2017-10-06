@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/lowthe01/projects/makers_academy/week_two/OysterCard/spec/features/feature_spec.rb": [
+      "/Users/davidhalewood/Documents/Makers/Projects/oystercard/spec/features/feature_spec.rb": [
         1,
         null,
         1,
@@ -16,7 +16,7 @@
         null,
         null
       ],
-      "/Users/lowthe01/projects/makers_academy/week_two/OysterCard/lib/oystercard.rb": [
+      "/Users/davidhalewood/Documents/Makers/Projects/oystercard/lib/oystercard.rb": [
         1,
         null,
         1,
@@ -61,11 +61,15 @@
         null,
         null
       ],
-      "/Users/lowthe01/projects/makers_academy/week_two/OysterCard/lib/journey.rb": [
+      "/Users/davidhalewood/Documents/Makers/Projects/oystercard/lib/journey.rb": [
+        1,
+        1,
         1,
         1,
         null,
         1,
+        17,
+        17,
         17,
         17,
         null,
@@ -89,7 +93,7 @@
         null,
         null
       ],
-      "/Users/lowthe01/projects/makers_academy/week_two/OysterCard/spec/journey_spec.rb": [
+      "/Users/davidhalewood/Documents/Makers/Projects/oystercard/spec/journey_spec.rb": [
         1,
         null,
         1,
@@ -133,7 +137,47 @@
         null,
         null
       ],
-      "/Users/lowthe01/projects/makers_academy/week_two/OysterCard/spec/oystercard_spec.rb": [
+      "/Users/davidhalewood/Documents/Makers/Projects/oystercard/spec/journeylog_spec.rb": [
+        1,
+        null,
+        1,
+        3,
+        3,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/davidhalewood/Documents/Makers/Projects/oystercard/lib/journeylog.rb": [
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        2,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        null
+      ],
+      "/Users/davidhalewood/Documents/Makers/Projects/oystercard/spec/oystercard_spec.rb": [
         1,
         null,
         1,
@@ -210,7 +254,7 @@
         null,
         null
       ],
-      "/Users/lowthe01/projects/makers_academy/week_two/OysterCard/spec/station_spec.rb": [
+      "/Users/davidhalewood/Documents/Makers/Projects/oystercard/spec/station_spec.rb": [
         1,
         null,
         1,
@@ -224,7 +268,7 @@
         null,
         null
       ],
-      "/Users/lowthe01/projects/makers_academy/week_two/OysterCard/lib/station.rb": [
+      "/Users/davidhalewood/Documents/Makers/Projects/oystercard/lib/station.rb": [
         1,
         1,
         null,
@@ -236,6 +280,6 @@
         null
       ]
     },
-    "timestamp": 1507216295
+    "timestamp": 1507289520
   }
 }

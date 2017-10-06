@@ -31,7 +31,7 @@ class OysterCard
 
   def complete_journey
     deduct @current_journey.fare
-    @journey_history << @current_journey
+    journey_history << @current_journey
     @current_journey = nil
   end
 
